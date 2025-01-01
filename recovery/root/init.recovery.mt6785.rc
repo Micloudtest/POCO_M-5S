@@ -76,6 +76,7 @@ on property:hwservicemanager.ready=true
     start gatekeeper-1-0
 
 on property:vendor.sys.listener.registered=true
+    start gatekeeper-1-0
     start keymaster-4-1
     start gatekeeper-1-0
    
