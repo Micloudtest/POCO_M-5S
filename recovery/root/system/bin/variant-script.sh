@@ -79,17 +79,14 @@ do_secret_in2() {
 
   case "$sku" in
 
-   "secret_in2")
-        do_secret
-        ;;
-   "rosemary_p")
-        do_rosemary_p
-        ;;
    "secret")
         do_secret
         ;;
    "maltose")
         do_maltose
+        ;;
+   "rosemary_p")
+        do_rosemary_p
         ;;
    "rosemary")
         do_rosemary
