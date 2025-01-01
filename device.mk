@@ -16,18 +16,36 @@
 # limitations under the License.
 #
 
+DEVICE_PATH := device/xiaomi/rosemary
+
 # Inherit virtual_ab_ota product
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
+# Enable project quotas and casefolding for emulated storage without sdcardfs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
+# Dynamic
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 33
+PRODUCT_TARGET_VNDK_VERSION := 34
 
 # API
-PRODUCT_SHIPPING_API_LEVEL := 30
+PRODUCT_SHIPPING_API_LEVEL := 31
 
-# A/B
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+# Bootctrl
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery
+
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -35,23 +53,19 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=erofs \
+    POSTINSTALL_OPTIONAL_vendor=true
 
-PRODUCT_PACKAGES_DEBUG += \
-    update_engine_client
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script
 
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
-
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-mtkimpl.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
@@ -68,10 +82,6 @@ PRODUCT_PACKAGES += \
 # Vibrator HAL
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.rosemary
-
-# Decryption
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
 
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
