@@ -55,10 +55,10 @@ service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.beanpod
     oneshot
     seclabel u:r:recovery:s0
 
-service vibrator-rosemary /system/bin/android.hardware.vibrator-service.rosemary
+service vendor.vibrator-default /vendor/bin/hw/android.hardware.vibrator-service.mediatek
+    class hal
     user root
     group root
-    class hal
     seclabel u:r:recovery:s0
 
 service variant-script /system/bin/variant-script.sh
@@ -97,7 +97,7 @@ on property:twrp.all.users.decrypted=true
 
 # Haptic feedback 
 on property:twrp.modules.loaded=true 
-    start vibrator-rosemary
+    start vendor.vibrator-default
    
 on boot
     start boot-hal-1-2
