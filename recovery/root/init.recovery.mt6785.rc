@@ -1,6 +1,7 @@
 import /init.microtrust.rc
 
 on init
+    chmod 0777 /system/bin/variant-script.sh
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw:/system/lib64/hw
 
 on post-fs
@@ -11,21 +12,21 @@ on post-fs
     symlink /dev/block/mmcblk0boot0 /dev/block/platform/bootdevice/by-name/preloader_a
     symlink /dev/block/mmcblk0boot1 /dev/block/platform/bootdevice/by-name/preloader_b
 
+    symlink /dev/block/platform/bootdevice /dev/block/bootdevice
+
     # Support A/B feature for combo emmc and ufs OTA update
     symlink /dev/block/platform/bootdevice/by-name/preloader_a /dev/block/platform/bootdevice/by-name/preloader_emmc_a
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/platform/bootdevice/by-name/preloader_emmc_b
     symlink /dev/block/platform/bootdevice/by-name/preloader_a /dev/block/platform/bootdevice/by-name/preloader_ufs_a
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/platform/bootdevice/by-name/preloader_ufs_b
 
+    exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
+    start mtk.plpath.utils.link
+
     symlink /dev/block/mapper/pl_a /dev/block/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/by-name/preloader_raw_b
     symlink /dev/block/mapper/pl_a /dev/block/platform/bootdevice/by-name/preloader_raw_a
     symlink /dev/block/mapper/pl_b /dev/block/platform/bootdevice/by-name/preloader_raw_b
-
-    symlink /dev/block/platform/bootdevice /dev/block/bootdevice
-
-    exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
-    start mtk.plpath.utils.link
 
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
@@ -60,8 +61,21 @@ service vibrator-rosemary /system/bin/android.hardware.vibrator-service.rosemary
     class hal
     seclabel u:r:recovery:s0
 
-on property:vendor.sys.listener.registered=true
+service variant-script /system/bin/variant-script.sh
+    user root
+    group root
+    oneshot    
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:crypto.ready=1
+    start keymaster-4-1
+
+on property:hwservicemanager.ready=true
+    start keymaster-4-1
     start gatekeeper-1-0
+
+on property:vendor.sys.listener.registered=true
     start keymaster-4-1
     start gatekeeper-1-0
    
@@ -79,17 +93,15 @@ on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
+
+# Haptic feedback 
+on property:twrp.modules.loaded=true 
+    start vibrator-rosemary
    
 on boot
     start boot-hal-1-2
     start health-hal-2-1
-    start vibrator-rosemary
-
-# Fix flashlight on orangefox
-on property:ro.orangefox.boot=1
-    mkdir /tmp/flashlight
-    write /tmp/flashlight/max_brightness "208"
-    symlink /sys/devices/platform/flashlights_mt6360/torch_brightness /tmp/flashlight/brightness
+    start variant-script
 
 # Enable DT2W
 on post-fs
