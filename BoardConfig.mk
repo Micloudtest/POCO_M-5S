@@ -33,15 +33,14 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
-    lk \
-    preloader \
-    product \
     system \
     system_ext \
+    product \
+    vendor \
+    odm \
     vbmeta \
     vbmeta_system \
-    vbmeta_vendor \
-    vendor
+    vbmeta_vendor
 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
