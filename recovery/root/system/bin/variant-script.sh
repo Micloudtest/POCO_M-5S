@@ -48,7 +48,6 @@ setdevicemodel() {
 
 # -------------------------------------------->
 
-
 do_rosemary() {
     setdevicename "rosemary"
     setdevicemodel "Redmi Note 10s"
@@ -71,6 +70,7 @@ do_rosemary_p() {
    *)
         do_rosemary_p
         ;;
-esac
+        
+  esac
 
 exit 0
