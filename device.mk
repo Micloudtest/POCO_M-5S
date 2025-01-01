@@ -29,19 +29,6 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 # A/B
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    lk \
-    preloader \
-    product \
-    system \
-    system_ext \
-    vbmeta \
-    vbmeta_system \
-    vbmeta_vendor \
-    vendor
-    
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
