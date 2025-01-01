@@ -14,10 +14,10 @@ cc_library_static {
 }
 
 cc_binary {
-    name: "android.hardware.vibrator-service.rosemary",
+    name: "android.hardware.vibrator-service..mediatek",
     relative_install_path: "hw",
-    init_rc: ["vibrator-rosemary.rc"],
-    vintf_fragments: ["vibrator-rosemary.xml"],
+    init_rc: ["vibrator-mediatek.rc"],
+    vintf_fragments: ["vibrator-mediatek.xml"],
     shared_libs: [
         "libbase",
         "libbinder_ndk",
