@@ -75,6 +75,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := rosemary,secret,maltose
+TARGET_DEVICE_ALT := rosemary,secret,maltose
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
