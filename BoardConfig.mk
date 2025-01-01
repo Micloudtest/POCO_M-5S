@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/redmi/rosemary
+DEVICE_PATH := device/xiaomi/rosemary
 PREBUILT_PATH := $(DEVICE_PATH)/prebuilt
 
 # Allow building with minimal manifest
