@@ -60,15 +60,27 @@ do_rosemary_p() {
 
 # -------------------------------------------->
 
-  sku=$(resetprop "ro.boot.product.hardware.sku")
+ sku=$(resetprop "ro.boot.product.vendor.sku")
 
   case "$sku" in
 
-   "dsds_se")
+   "secret_in2")
+        do_secret
+        ;;
+   "rosemary_p")
+        do_rosemary_p
+        ;;
+   "secret")
+        do_secret
+        ;;
+   "maltose")
+        do_maltose
+        ;;
+   "rosemary")
         do_rosemary
         ;;
    *)
-        do_rosemary_p
+        do_secret_in2
         ;;
         
   esac
