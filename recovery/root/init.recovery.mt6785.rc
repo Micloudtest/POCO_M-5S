@@ -94,15 +94,12 @@ on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
-
-# Haptic feedback 
-on property:twrp.modules.loaded=true 
-    start vendor.vibrator-default
-   
+ 
 on boot
     start boot-hal-1-2
     start health-hal-2-1
     start variant-script
+    start vendor.vibrator-default
 
 # Enable DT2W
 on post-fs
