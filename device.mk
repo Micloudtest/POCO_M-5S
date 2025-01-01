@@ -70,8 +70,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
-# MTK PlPath Utils
+# Mtk plpath utils
 PRODUCT_PACKAGES += \
+    mtk_plpath_utils \
     mtk_plpath_utils.recovery
 
 # Health HAL
