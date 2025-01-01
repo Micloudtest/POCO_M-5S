@@ -22,6 +22,9 @@ PREBUILT_PATH := $(DEVICE_PATH)/prebuilt
 # Allow building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Allow putting ELF in PRODUCT_COPY_FILES (required by vibrator)
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -188,6 +191,7 @@ TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS  := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_EXTRA_LANGUAGES := true
+TW_EXCLUDE_APEX := true
 TW_USE_TOOLBOX := true
 TW_SCREEN_BLANK_ON_BOOT := true
 RECOVERY_SDCARD_ON_DATA := true
