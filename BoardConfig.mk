@@ -65,12 +65,12 @@ TARGET_2ND_CPU_VARIANT := cortex-a55
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := rosemary
-TARGET_NO_BOOTLOADER := true
-
 # Platform
 TARGET_BOARD_PLATFORM := mt6785
+
+# Bootloader
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+TARGET_NO_BOOTLOADER := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := rosemary,secret,maltose
