@@ -22,6 +22,9 @@ PREBUILT_PATH := $(DEVICE_PATH)/prebuilt
 # Allow building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Allow putting ELF in PRODUCT_COPY_FILES (required by vibrator)
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
