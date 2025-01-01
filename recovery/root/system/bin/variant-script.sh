@@ -58,13 +58,13 @@ do_rosemary_p() {
     setdevicemodel "POCO M5s"
 }
 
-do_secret() {
-    setdevicename "secret"
+do_maltose() {
+    setdevicename "maltose"
     setdevicemodel "Redmi Note 10s"
 }
 
-do_maltose() {
-    setdevicename "maltose"
+do_secret() {
+    setdevicename "secret"
     setdevicemodel "Redmi Note 10s"
 }
 
@@ -79,6 +79,9 @@ do_secret_in2() {
 
   case "$sku" in
 
+   "secret_in2")
+        do_secret_in2
+        ;;
    "secret")
         do_secret
         ;;
