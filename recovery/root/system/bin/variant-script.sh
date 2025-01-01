@@ -88,14 +88,11 @@ do_secret_in2() {
    "maltose")
         do_maltose
         ;;
-   "rosemary_p")
-        do_rosemary_p
-        ;;
    "rosemary")
         do_rosemary
         ;;
    *)
-        do_secret_in2
+        do_rosemary_p
         ;;
         
   esac
