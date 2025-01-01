@@ -1,0 +1,1 @@
+require board=rosemary|rosemary_p|maltose|secret|secret_in2
