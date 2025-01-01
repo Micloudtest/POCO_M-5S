@@ -1,4 +1,4 @@
-service vibrator-rosemary /vendor/bin/hw/android.hardware.vibrator-service.rosemary
+service vibrator-rosemary /vendor/bin/hw/android.hardware.vibrator-service.mediatek
     class hal
     user root
     group root
