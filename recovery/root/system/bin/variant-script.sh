@@ -58,6 +58,21 @@ do_rosemary_p() {
     setdevicemodel "POCO M5s"
 }
 
+do_secret() {
+    setdevicename "secret"
+    setdevicemodel "Redmi Note 10s"
+}
+
+do_maltose() {
+    setdevicename "maltose"
+    setdevicemodel "Redmi Note 10s"
+}
+
+do_secret_in2() {
+    setdevicename "secret"
+    setdevicemodel "Redmi Note 11 SE"
+}
+
 # -------------------------------------------->
 
  sku=$(resetprop "ro.boot.product.vendor.sku")
