@@ -73,10 +73,6 @@ TARGET_BOARD_PLATFORM := mt6785
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 TARGET_NO_BOOTLOADER := true
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := rosemary,secret,maltose
-TARGET_DEVICE_ALT := rosemary,secret,maltose
-
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
@@ -147,15 +143,6 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 # AVB
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-
-ifneq ($(OF_HIDE_NOTCH),1)
- # Configure Status bar icons for regular TWRP builds only
- TW_DEVICE_VERSION := Rosemary Tapin™
- TW_STATUS_ICONS_ALIGN := center
- TW_CUSTOM_CPU_POS := "300"
- TW_CUSTOM_CLOCK_POS := "70"
- TW_CUSTOM_BATTERY_POS := "790"
-endif
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
