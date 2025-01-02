@@ -54,7 +54,7 @@ do_rosemary() {
 }
 
 do_rosemary_p() {
-    setdevicename "rosemary"
+    setdevicename "rosemary_p"
     setdevicemodel "POCO M5s"
 }
 
