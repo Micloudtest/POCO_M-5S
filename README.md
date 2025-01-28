@@ -1,4 +1,4 @@
-# TWRP device tree for Redmi Note 10S (rosemary)
+# TWRP device tree MIUI 14.0.X kERNEL 4.19
 
 ## Status
 
