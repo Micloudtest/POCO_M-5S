@@ -3,12 +3,6 @@
 # The filesystem that contains the filesystem checker binary (typically /system) cannot
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
-# mount point       fstype    device                                        flags
-/system_ext         auto      /dev/block/mapper/system_ext                 flags=display="System_ext";logical
-/system_root        auto      /dev/block/mapper/system                     flags=display="System";logical
-/vendor             auto      /dev/block/mapper/vendor                     flags=display="Vendor";logical
-/product            auto      /dev/block/mapper/product                    flags=display="Product";logical
-
 ## User-writable / Storage partitions
 /metadata           ext4      /dev/block/by-name/md_udc                    flags=display="Metadata";wrappedkey;wipeduringfactoryreset
 /cache              ext4      /dev/block/by-name/rescue                    flags=display="Cache";backup=1;wipeingui
