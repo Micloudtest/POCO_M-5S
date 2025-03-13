@@ -150,7 +150,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
 ifneq ($(OF_HIDE_NOTCH),1)
  # Configure Status bar icons for regular TWRP builds only
- TW_DEVICE_VERSION := Rosemary Tapin™
+ TW_DEVICE_VERSION := Tapin™
  TW_STATUS_ICONS_ALIGN := center
  TW_CUSTOM_CPU_POS := "300"
  TW_CUSTOM_CLOCK_POS := "70"
