@@ -54,18 +54,18 @@ do_rosemary() {
 }
 
 do_rosemary_p() {
-    setdevicename "rosemary_p"
+    setdevicename "rosemary"
     setdevicemodel "POCO M5s"
 }
 
 do_maltose() {
     setdevicename "maltose"
-    setdevicemodel "Redmi Note 10s"
+    setdevicemodel "Redmi Note 10S"
 }
 
 do_secret() {
     setdevicename "secret"
-    setdevicemodel "Redmi Note 10s"
+    setdevicemodel "Redmi Note 10S"
 }
 
 do_secret_in2() {
