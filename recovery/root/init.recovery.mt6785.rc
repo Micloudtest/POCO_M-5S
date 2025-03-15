@@ -95,11 +95,20 @@ on property:twrp.all.users.decrypted=true
     stop keymaster-4-1-beanpod 
     stop gatekeeper-1-0
 
+# Haptic feedback 
+on property:twrp.modules.loaded=true 
+    start vendor.vibrator-default
+
 on boot
     start boot-hal-1-2
     start health-hal-2-1
     start variant-script
-    start vendor.vibrator-default
+
+# Fix flashlight on orangefox
+on property:ro.orangefox.boot=1
+    mkdir /tmp/flashlight
+    write /tmp/flashlight/max_brightness "208"
+    symlink /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness /tmp/flashlight/brightness
 
 # Enable DT2W
 on post-fs
