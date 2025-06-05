@@ -108,14 +108,6 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	  	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP="1"
 	  	export FOX_INSTALLER_DISABLE_AUTOREBOOT=1
 
-		F=$(find "device" -maxdepth 2 -name "rosemary")
-		# Modify the background color of the startup screen to #000000
-		\cp -fp bootable/recovery/gui/theme/portrait_hdpi/splash.xml "$F"/recovery/root/twres/splash.xml
-		sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-		sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-
-		echo -e "\x1b[96rosemary: When you see this message, all OrangeFox Vars have been added!\x1b[m"
-
 	        # let's see what are our build VARs
 	        if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
   	           export | grep "FOX" >> $FOX_BUILD_LOG_FILE
