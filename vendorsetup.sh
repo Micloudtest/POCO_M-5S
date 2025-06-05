@@ -41,13 +41,13 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	echo -e "\x1b[96m[INFO]: Setting up OrangeFox build vars for rosemary...\x1b[m"
 	if [ "$1" = "$FDEVICE" ] || [  "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	  # Version / Maintainer infos
-		export OF_MAINTAINER="Tapin Recovery Instraller"
-		export FOX_VERSION=R12.1_0
-		export FOX_VARIANT="Stable"
-		export FOX_BUILD_TYPE="Unofficial"
-		export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemary_p"
-		export TARGET_DEVICE_ALT="rosemary,secret,maltose,rosemary_p"
-		export LC_ALL="C"
+	  	export OF_MAINTAINER="Tapin Recovery Instraller"
+		export FOX_MAINTAINER_PATCH_VERSION="0"
+	  	export FOX_VARIANT="Stable"
+	  	export FOX_BUILD_TYPE="Unofficial"
+	  	export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemary_p"
+	  	export TARGET_DEVICE_ALT="rosemary,secret,maltose,rosemary_p"
+	  	export LC_ALL="C"
 
 	  	# Magiskboot
 	  	export OF_USE_MAGISKBOOT=1
@@ -63,7 +63,6 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 
 	  	export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	  	export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
-	  	export OF_SUPPORT_VBMETA_AVB2_PATCHING=1
 
 	  	# Display / Leds
 	  	export OF_SCREEN_H="2400"
