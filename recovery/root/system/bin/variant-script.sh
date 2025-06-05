@@ -50,10 +50,10 @@ setdevicemodel() {
 
 do_rosemary() {
     setdevicename "rosemary"
-    setdevicemodel "Redmi Note 10s"
+    setdevicemodel "Redmi Note 10S"
 }
 
-do_rosemary_p() {
+do_rosemaryp() {
     setdevicename "rosemary"
     setdevicemodel "POCO M5s"
 }
@@ -79,8 +79,8 @@ do_secret_in2() {
 
   case "$sku" in
 
-   "secret_in2")
-        do_secret_in2
+   "rosemaryp")
+        do_rosemaryp
         ;;
    "secret")
         do_secret
@@ -92,7 +92,7 @@ do_secret_in2() {
         do_rosemary
         ;;
    *)
-        do_rosemary_p
+        do_secret_in2
         ;;
         
   esac
