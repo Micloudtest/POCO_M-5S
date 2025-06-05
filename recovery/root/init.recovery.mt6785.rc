@@ -76,8 +76,8 @@ on property:hwservicemanager.ready=true
     start gatekeeper-1-0
 
 on property:vendor.sys.listener.registered=true
-    start gatekeeper-1-0
     start keymaster-4-1-beanpod 
+    start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop teei_daemon
