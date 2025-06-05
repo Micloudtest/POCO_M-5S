@@ -45,8 +45,8 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 		export FOX_MAINTAINER_PATCH_VERSION="0"
 	  	export FOX_VARIANT="Stable"
 	  	export FOX_BUILD_TYPE="Unofficial"
-	  	export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemary_p"
-	  	export TARGET_DEVICE_ALT="rosemary,secret,maltose,rosemary_p"
+	  	export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemaryp"
+	  	export TARGET_DEVICE_ALT="rosemary,secret,maltose,rosemaryp"
 	  	export LC_ALL="C"
 
 	  	# Magiskboot
