@@ -104,7 +104,7 @@ on boot
 on property:ro.orangefox.boot=1
     mkdir /tmp/flashlight
     write /tmp/flashlight/max_brightness "1"
-    symlink /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness /tmp/flashlight/brightness
+    symlink /sys/devices/platform/flashlights_mt6360/torch_brightness /tmp/flashlight/brightness
 
 # Enable DT2W
 on post-fs
