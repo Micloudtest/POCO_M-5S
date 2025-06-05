@@ -68,7 +68,7 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl
+    bootctrl
 
 # Health HAL
 PRODUCT_PACKAGES += \
