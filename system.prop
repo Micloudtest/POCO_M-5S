@@ -1,8 +1,22 @@
+# Platform
 ro.mediatek.platform=MT6785
 ro.hardware=mt6785
-ro.mtk_tee_gp_support=1
-ro.mtk_microtrust_tee_support=1
-fbe.metadata.wrappedkey=true
-ro.crypto.volume.filenames_mode=aes-256-cts
+
+# Dynamic
+ro.boot.dynamic_partitions=true
+
+# Gatekeeper
 ro.hardware.kmsetkey=beanpod
 ro.hardware.gatekeeper=beanpod
+
+# Crypto
+fbe.metadata.wrappedkey=true
+ro.crypto.volume.filenames_mode=aes-256-cts
+
+# Tee
+ro.vendor.mtk_tee_gp_support=1
+ro.vendor.mtk_microtrust_tee_support=1
+
+# Timezone
+persist.sys.timezone="Asia/Singapore"
+
