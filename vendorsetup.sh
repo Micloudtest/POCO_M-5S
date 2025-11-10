@@ -42,7 +42,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	if [ "$1" = "$FDEVICE" ] || [  "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	  # Version / Maintainer infos
 	  	export OF_MAINTAINER="Tapin Recovery Instraller"
-		export FOX_MAINTAINER_PATCH_VERSION="0"
+		export FOX_MAINTAINER_PATCH_VERSION="5"
 	  	export FOX_VARIANT="Stable"
 	  	export FOX_BUILD_TYPE="Unofficial"
 	  	export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemaryp"
@@ -63,6 +63,9 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 
 	  	export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 	  	export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
+
+		export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
+        export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
 
 	  	# Display / Leds
 	  	export OF_SCREEN_H="2400"
