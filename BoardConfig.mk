@@ -221,3 +221,7 @@ TW_INCLUDE_FASTBOOTD := true
 # Log
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
+
+#PBRP Flags
+PB_DISABLE_DEFAULT_TREBLE_COMP := true
+PB_TORCH_PATH := "/sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness"
