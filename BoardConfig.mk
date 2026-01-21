@@ -151,6 +151,16 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_NO_RECOVERY := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
+ifneq ($(OF_HIDE_NOTCH),1)
+ # Configure Status bar icons for regular TWRP builds only
+ TW_DEVICE_VERSION := Rosemary Tapin™
+ TW_STATUS_ICONS_ALIGN := center
+ TW_CUSTOM_CPU_POS := "300"
+ TW_CUSTOM_CLOCK_POS := "70"
+ TW_CUSTOM_BATTERY_POS := "790"
+endif
+
+
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
