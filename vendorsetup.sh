@@ -42,7 +42,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	if [ "$1" = "$FDEVICE" ] || [  "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	  # Version / Maintainer infos
 	  	export OF_MAINTAINER="Tapin Recovery Instraller"
-		export FOX_MAINTAINER_PATCH_VERSION="0"
+		export FOX_MAINTAINER_PATCH_VERSION="1"
 	  	export FOX_VARIANT="Stable"
 	  	export FOX_BUILD_TYPE="Unofficial"
 	  	export FOX_TARGET_DEVICES="rosemary,secret,maltose,rosemaryp"
