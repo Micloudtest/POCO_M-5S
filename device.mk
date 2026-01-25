@@ -69,6 +69,12 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
+# Erofs utils
+PRODUCT_PACKAGES += \
+    mkfs.erofs.recovery \
+    dump.erofs.recovery \
+    fsck.erofs.recovery
+
 # Vibrator HAL
 PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.mediatek
