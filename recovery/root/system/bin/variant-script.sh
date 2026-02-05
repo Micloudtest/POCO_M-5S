@@ -23,20 +23,20 @@
 
 setdevicename() {
     resetprop "ro.build.product" "$1"
-    resetprop "ro.product.device" "$1"
     resetprop "ro.product.vendor.device" "$1"
     resetprop "ro.product.odm.device" "$1"
     resetprop "ro.product.system_ext.device" "$1"
+    resetprop "ro.product.product.model" "$1"
 }
 
 
 setdevicemodel() {
     resetprop "ro.product.model" "$1"
+    resetprop "ro.product.device" "$1"
     resetprop "ro.product.odm.model" "$1"
     resetprop "ro.product.system.model" "$1"
     resetprop "ro.product.vendor.model" "$1"
     resetprop "ro.product.system_ext.model" "$1"
-    resetprop "ro.product.product.model" "$1"
     resetprop "ro.product.system.device" "$1"
     
     resetprop "ro.product.marketname" "$1"
