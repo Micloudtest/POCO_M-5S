@@ -33,7 +33,6 @@ setdevicename() {
 
 setdevicemodel() {
     resetprop "ro.product.model" "$1"
-
     resetprop "ro.product.odm.model" "$1"
     resetprop "ro.product.system.model" "$1"
     resetprop "ro.product.vendor.model" "$1"
