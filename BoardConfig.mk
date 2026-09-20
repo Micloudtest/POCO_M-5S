@@ -196,18 +196,12 @@ TW_USE_TOOLBOX := true
 TW_NO_SCREEN_BLANK := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TW_USE_SIMPLIFIED_KEY_DIR_CHECK := true
 
 # Serialno
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 
 # USB
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
-
-# Removes the loop block errors after flashing ZIPs (Workaround) 
-TW_IGNORE_LOGICAL_MOUNT_ERRORS := true
-TW_LOOP_DEVICE_ERRORS_TO_LOG := true
 
 # This device does not support fastboot boot, do *NOT* remove!
 TW_NO_FASTBOOT_BOOT := true
