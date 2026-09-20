@@ -52,7 +52,16 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	  	# Magiskboot
 	  	export OF_USE_MAGISKBOOT=1
 	  	export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
-	  	export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
+	  	export FOX_USE_UPDATED_MAGISKBOOT=1
+
+	  	# Enable the FRP reset addon
+	  	export OF_ENABLE_FRP_ADDON=1
+		
+		# MediaTek
+   	    export OF_AB_DEVICE_WITH_BOOT_PARTITION=1
+    	export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
+		export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
+	    export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor"
   
 	  	# OTA / DM-Verity / Encryption
 	  	export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
@@ -65,7 +74,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 
 	  	# Display / Leds
 	  	export OF_SCREEN_H="2400"
-	  	export OF_STATUS_H="100"
+	  	export OF_STATUS_H="99"
 	  	export OF_STATUS_INDENT_LEFT=48
 	  	export OF_STATUS_INDENT_RIGHT=48
 	  	export OF_HIDE_NOTCH=1
@@ -106,15 +115,6 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 	  	#export OF_USE_TWRP_SAR_DETECT=1
 	  	export OF_SKIP_MULTIUSER_FOLDERS_BACKUP="1"
 	  	export FOX_INSTALLER_DISABLE_AUTOREBOOT=1
-
-	  	F=$(find "device" -maxdepth 2 -name "rosemary")
-	  	# Modify the background color of the startup screen to #000000
-	  	\cp -fp bootable/recovery/gui/theme/portrait_hdpi/splash.xml "$F"/recovery/root/twres/splash.xml
-	  	sed -i 's/value="#D34E38"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-	  	sed -i 's/value="#FF8038"/value="#000000"/g' "$F"/recovery/root/twres/splash.xml
-
-	  	echo -e "\x1b[96rosemary: When you see this message, all OrangeFox Vars have been added!\x1b[m"
-
 
 	        # let's see what are our build VARs
 	        if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then
