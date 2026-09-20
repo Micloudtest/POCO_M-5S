@@ -82,17 +82,19 @@ on property:ro.crypto.state=unencrypted
     stop teei_daemon    
     stop keymaster-4-1-beanpod 
     stop gatekeeper-1-0
-        
-on property:twrp.all.users.decrypted=true
+            
+on property:twrp.decrypt.done=true
     stop teei_daemon
     stop keymaster-4-1-beanpod 
     stop gatekeeper-1-0
 
 on boot
+    start vendor.vibrator-default
+
+on boot
     start boot-hal-1-2
     start health-hal-2-1
     start variant-script
-    start vendor.vibrator-default
 
 # Fix flashlight on orangefox
 on property:ro.orangefox.boot=1
