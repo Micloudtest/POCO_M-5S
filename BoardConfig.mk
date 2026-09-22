@@ -133,6 +133,7 @@ TW_MAX_BRIGHTNESS := 2047
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # AVB
 BOARD_AVB_ENABLE := true
