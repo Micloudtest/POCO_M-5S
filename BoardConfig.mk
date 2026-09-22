@@ -155,7 +155,6 @@ endif
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
 
 # Security patch level
